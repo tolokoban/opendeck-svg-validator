@@ -1,0 +1,21 @@
+div.view-Errors {
+    width: 20vw;
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-direction: column;
+}
+
+div.view-Errors > div.body {
+    flex: 1 1 auto;
+    overflow: auto;
+    margin: .25rem;
+    padding: .5rem;
+}
+
+div.view-Errors > div.body > div {
+    color: #f00;
+    font-weight: bold;
+    font-family: monospace;
+}

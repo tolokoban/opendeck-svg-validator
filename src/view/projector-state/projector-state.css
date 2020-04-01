@@ -1,0 +1,14 @@
+div.view-ProjectorState {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0 8px;
+    align-items: stretch;
+    width: 120px;
+    height: 9rem;
+}
+
+div.view-ProjectorState > label {
+    opacity: .5;
+    text-align: center;
+}
