@@ -21,13 +21,12 @@ export default class ProjectorState extends React.Component<IProjectorStateProps
     state = {}
 
     swap(attributeName: keyof IProjectorState, value: boolean) {
-        const { projector } = this.props
-        this.setState({
-            projector: {
-                ...projector,
-                [attributeName]: value
-            }
-        })
+        const projector = {
+            ...this.props.projector,
+            [attributeName]: value
+        }
+        this.setState({ projector })
+        this.props.onChange(projector)
     }
 
     render() {

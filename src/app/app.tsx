@@ -48,6 +48,7 @@ export default class App extends React.Component<IAppProps, IAppState> {
     }
 
     updateProjector(projector: IProjectorState, index: number) {
+        console.info("projector, index=", projector, index)
         const projectors = this.state.projectors.slice()
         projectors[index] = { ...projector }
         this.setState({ projectors })
@@ -81,7 +82,7 @@ export default class App extends React.Component<IAppProps, IAppState> {
                     onError={this.handleNewError}
                     onWallClicked={this.handleWallClicked} />
             </div>
-            <Errors errors={errors} onLoad={content => this.setState({ content })}/>
+            <Errors errors={errors} onLoad={content => this.setState({ content, errors: [] })}/>
         </div>)
     }
 }
