@@ -1,7 +1,12 @@
 div.openDeck-view-hardwareDashboard-Canvas>svg {
     margin: 0;
-    transition: opacity .5s;
-    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+div.openDeck-view-hardwareDashboard-Canvas>svg * {
+    transition: opacity 1s;
 }
 
 div.openDeck-view-hardwareDashboard-Canvas>svg {
@@ -14,21 +19,13 @@ div.openDeck-view-hardwareDashboard-Canvas>svg {
     }
 
     to {
-        transform: rotate(360deg);
+        transform: rotate(-360deg);
     }
 }
 
-.openDeck-view-hardwareDashboard-Canvas>svg #projector1Busy,
-.openDeck-view-hardwareDashboard-Canvas>svg #projector2Busy,
-.openDeck-view-hardwareDashboard-Canvas>svg #projector3Busy,
-.openDeck-view-hardwareDashboard-Canvas>svg #projector4Busy,
-.openDeck-view-hardwareDashboard-Canvas>svg #projector5Busy,
-.openDeck-view-hardwareDashboard-Canvas>svg #projector6Busy,
-.openDeck-view-hardwareDashboard-Canvas>svg #projector7Busy,
-.openDeck-view-hardwareDashboard-Canvas>svg #floorBusy {
-    transform-origin: 50% 50%;
+.openDeck-view-hardwareDashboard-Canvas>svg use.spin {
     animation-name: opendeckspin;
-    animation-duration: .5s;
+    animation-duration: .7s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }

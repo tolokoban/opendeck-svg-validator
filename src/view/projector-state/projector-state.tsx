@@ -23,9 +23,8 @@ export default class ProjectorState extends React.Component<IProjectorStateProps
     swap(attributeName: keyof IProjectorState, value: boolean) {
         const projector = {
             ...this.props.projector,
-            [attributeName]: value
+            [attributeName]: attributeName === 'errors' ? (value ? ["error"] : []) : value
         }
-        this.setState({ projector })
         this.props.onChange(projector)
     }
 
@@ -41,6 +40,7 @@ export default class ProjectorState extends React.Component<IProjectorStateProps
             <Checkbox label="Busy" value={projector.busy} onChange={value => this.swap("busy", value)}/>
             <Checkbox label="Power" value={projector.power} onChange={value => this.swap("power", value)}/>
             <Checkbox label="3D" value={projector.stereo} onChange={value => this.swap("stereo", value)}/>
+            <Checkbox label="Error" value={projector.errors.length > 0} onChange={value => this.swap("errors", value)}/>
         </div>)
     }
 }

@@ -33,7 +33,7 @@ export default class Canvas extends React.Component<TCanvasProps, TCanvasState> 
         this.content = content
         div.innerHTML = content
 
-        const suffixes = ["Off", "Mono", "Stereo", "Busy"]
+        const suffixes = ["Off", "Mono", "Stereo", "Busy", "Error"]
         for (let index = 1; index < 8; index++) {
             const element = div.querySelector(`#projector${index}`)
             if (!element) {
@@ -86,6 +86,9 @@ export default class Canvas extends React.Component<TCanvasProps, TCanvasState> 
             }
             else {
                 classes.push(`${prefix}Mono`)
+            }
+            if (projector.errors.length > 0 || projector.warnings.length > 0) {
+                classes.push(`${prefix}Error`)
             }
         }
         return classes

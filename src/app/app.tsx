@@ -6,8 +6,7 @@ import ProjectorState from '../view/projector-state'
 import { IProjectorState } from '../types'
 
 import "./app.css"
-
-const Button = Tfw.View.Button
+import OpenDeckSVG from "../gfx/OpenDeck.svg"
 
 interface IAppProps {
     className?: string[]
@@ -26,6 +25,11 @@ export default class App extends React.Component<IAppProps, IAppState> {
         ],
         content: "",
         errors: []
+    }
+
+    async componentDidMount() {
+        const content = await Tfw.Util.loadTextFromURL(OpenDeckSVG)
+        this.setState({ content })
     }
 
     handleWallClicked = (index: number) => {
@@ -90,7 +94,7 @@ export default class App extends React.Component<IAppProps, IAppState> {
 function randomProjector(): IProjectorState {
     return {
         busy: rnd(),
-        errors: [],
+        errors: rnd() ? ["error"] : [],
         name: "proj",
         power: rnd(),
         serverError: "",
